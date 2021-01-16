@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import CRUD from "../services/crud"
-import MenuBar from '../components/menu.js';
+import MenuBar from '../components/Menu.js';
 import Footer from '../components/Footer.js';
 import Header from '../components/Header.js';
 function Lessions() {
@@ -44,34 +44,35 @@ function Lessions() {
         <>
             <Header />
             <MenuBar />
-            <div>
-                <h2>{items.tieude}</h2>
+            <div className = 'content'>
+                <h3>{items.tieude}</h3>
                 <ol>
                     <li>
-                        <div className="item">
-                            <h3>Vấn đề</h3>
-                            <p id='vande'></p>
+                        <div>
+                            <h4> Vấn đề</h4>
+                            <div className='item'>
+                                <p id='vande'></p>
+                            </div>
                         </div>
                     </li>
                     <li>
-                        <div className="item">
-                            <h3>Ý tưởng :</h3>
-                            <p id='ytuong'></p>
-                            <h4>Thực hiện :</h4>
-                            <p id='thuchien'></p>
-                            <h5>Code</h5>
+                        <div>
+                            <h4> Ý tưởng :</h4>
+                            <div className='item'><p id='ytuong'></p></div>
+                            <h5> Thực hiện :</h5>
+                            <div className='item'><p id='thuchien'></p></div>
+                            <h5> Code :</h5>
                             <div className="code">
                                 <pre className="language-cpp"><code id='code' className='hljs'>
                                 </code></pre>
                             </div>
-
                         </div>
                     </li>
                     <li>
-                        <div className="item">
-                            <h3>Minh họa cách chạy :</h3>
+                        <div>
+                            <h4> Minh họa cách chạy :</h4>
                             <img src={items.src} alt='' />
-                            <p id='minhhoa'></p>
+                            <div className='item'><p id='minhhoa'></p></div>
                         </div>
                     </li>
                 </ol>

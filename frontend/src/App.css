@@ -36,38 +36,21 @@
     transform: rotate(360deg);
   }
 }
-
-.btn-lessions{
-
-  text-align: left;
+.item{
   padding-left: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  font-size: 20px;
-  border: none;
-  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
 }
-.btn-lessions a{
-  color: rgb(50, 5, 87);
-}
-.btn-lessions:hover {
-  background-color: rgb(182, 182, 182);
+.content{
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
-.ip-noi{
-  width : 70%;
-  margin-left : 10px;
-  margin-right : 10px;
+h1, h2, h3, h4, h5{
+  color : #660000;
 }
-
-.btn-upload{
-  width : 100px;
-  border-radius: 5px;
-  background-color : rgb(0, 108, 250);
-  color: white;
-  font-size : 15px;
-}
-.btn-upload:hover{
-  background-color:  rgb(154, 197, 253);
-  color: black;
+h1, h2, h3{
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

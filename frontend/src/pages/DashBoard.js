@@ -7,6 +7,7 @@ import {
     Route,
     Link,
 } from "react-router-dom";
+import { Table } from 'reactstrap';
 function Dashboard() {
     const [listItems, setListItems] = React.useState([]);
 
@@ -19,21 +20,35 @@ function Dashboard() {
     React.useEffect(() => {
         notifyData();
     }, []);
-    
+
     return (
-        <div className = 'content'>
-            <h1>Các thuật toán :</h1>
-            <ol>
-                {
-                    listItems.map((item, index) => (
-                        <li>
-                            <div className = 'btn-lessions'>
-                                <Link  to = {"/lessions/"+item.path} >{item.tieude}</Link>
-                            </div>
-                        </li>
-                    ))
-                }
-            </ol>
+        <div className='content'>
+            <Table hover>
+                <thead>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            <h4>Các thuật toán</h4>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        listItems.map((item, index) => (
+                            <tr>
+                                <th scope="row">
+                                    {index + 1}
+                                </th>
+                                <td>
+                                    <Link to={"/lessions/" + item.path} >{item.tieude}</Link>
+                                </td>
+                            </tr>
+                        ))
+                    }
+
+                </tbody>
+            </Table>
         </div>
     );
 }
