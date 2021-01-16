@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Alert from '../components/Alert';
 import CRUD from '../services/crud.js';
+import Header from '../components/Header.js';
+import MenuBar from '../components/menu.js';
+import Footer from '../components/Footer.js';
 export default function Upload() {
     const [fileInputState, setFileInputState] = useState('');
     const [selectedFile, setSelectedFile] = useState();
@@ -79,66 +82,71 @@ export default function Upload() {
     }
 
     return (
-        <div>
-            <h1 className="title">Upload</h1>
-            <form style = {{'width' : '100%'}} >
-                <table style = {{'width' : '100%'}}>
-                    <tr>
-                        <td><p>Tag (*)</p></td>
-                        <td><input name='path' className='ip-noi' onChange={onChangPostData} type='text' ></input></td>
-                    </tr>
-                    <tr>
-                        <td><p>Tiêu đề (*)</p></td>
-                        <td><textarea cols="20" rows="5" name='tieude' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
-                    </tr>
-                    <tr>
-                        <td><p>Đặt vấn đề (*)</p></td>
-                        <td><textarea cols="20" rows="5" name='vande' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
-                    </tr>
-                    <tr>
-                        <td><p>Ý tưởng (*)</p></td>
-                        <td><textarea cols="20" rows="5" name='ytuong' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
-                    </tr>
-                    <tr>
-                        <td><p>Thực hiện (*)</p></td>
-                        <td><textarea cols="20" rows="5" name='thuchien' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
-                    </tr>
-                    <tr>
-                        <td><p>Code</p></td>
-                        <td>
-                            <textarea name='code' className='ip-noi' onChange={onChangPostData} cols="40" rows="5"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>Gif minh họa</p></td>
-                        <td>
-                            <input
-                                className='ip-noi'
-                                id="fileInput"
-                                type="file"
-                                name="image"
-                                onChange={handleFileInputChange}
-                                value={fileInputState}
-                            />
-                            <button className="btn-upload" type='button' onClick={handleSubmitFile}> Upload</button>
-                        </td>
-                        <td>
-                            <Alert msg={errMsg} type="danger" />
-                            <Alert msg={successMsg} type="success" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><p>Minh họa </p></td>
-                        <td><textarea cols="20" rows="5" name='minhhoa' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
-                    </tr>
+        <>
+            <Header />
+            <MenuBar />
+            <div className='content'>
+                <h1 className="title">Upload</h1>
+                <form style={{ 'width': '100%' }} >
+                    <table style={{ 'width': '100%' }}>
+                        <tr>
+                            <td><p>Tag (*)</p></td>
+                            <td><input name='path' className='ip-noi' onChange={onChangPostData} type='text' ></input></td>
+                        </tr>
+                        <tr>
+                            <td><p>Tiêu đề (*)</p></td>
+                            <td><textarea cols="20" rows="5" name='tieude' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><p>Đặt vấn đề (*)</p></td>
+                            <td><textarea cols="20" rows="5" name='vande' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><p>Ý tưởng (*)</p></td>
+                            <td><textarea cols="20" rows="5" name='ytuong' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><p>Thực hiện (*)</p></td>
+                            <td><textarea cols="20" rows="5" name='thuchien' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><p>Code</p></td>
+                            <td>
+                                <textarea name='code' className='ip-noi' onChange={onChangPostData} cols="40" rows="5"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Gif minh họa</p></td>
+                            <td>
+                                <input
+                                    className='ip-noi'
+                                    id="fileInput"
+                                    type="file"
+                                    name="image"
+                                    onChange={handleFileInputChange}
+                                    value={fileInputState}
+                                />
+                                <button className="btn-upload" type='button' onClick={handleSubmitFile}> Upload</button>
+                            </td>
+                            <td>
+                                <Alert msg={errMsg} type="danger" />
+                                <Alert msg={successMsg} type="success" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><p>Minh họa </p></td>
+                            <td><textarea cols="20" rows="5" name='minhhoa' className='ip-noi' onChange={onChangPostData} type='text' ></textarea></td>
+                        </tr>
 
-                </table>
-                <div style={{ 'height': '40px', 'margin-top' : '40px'}}>
-                    <div style={{ 'width': '150px', 'float': 'right' }}>
-                        <button type='button' className='btn-upload' onClick={handleSubmit} >Gửi</button>
+                    </table>
+                    <div style={{ 'height': '40px', 'margin-top': '40px' }}>
+                        <div style={{ 'width': '150px', 'float': 'right' }}>
+                            <button type='button' className='btn-upload' onClick={handleSubmit} >Gửi</button>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+            <Footer />
+        </>
     );
 }

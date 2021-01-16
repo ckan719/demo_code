@@ -1,35 +1,16 @@
 import React from 'react';
-
-import CRUD from "../services/crud";
-
+import Header from '../components/Header.js';
+import Dashboard from './DashBoard.js';
+import MenuBar from '../components/menu.js';
+import Footer from '../components/Footer.js';
 function Home() {
-    const [listItems, setListItems] = React.useState([]);
-
-    const notifyData = () => {
-        CRUD.getAll().then((res) => {
-            console.log(res);
-            setListItems(res.data.data);
-        });
-    };
-    React.useEffect(() => {
-        notifyData();
-    }, []);
-    
     return (
-        <div>
-            <h1>Các thuật toán :</h1>
-            <ol>
-                {
-                    listItems.map((item, index) => (
-                        <li>
-                            <div className = 'btn-lessions'>
-                                <a  href = {"/lessions/"+item.path} >{item.tieude}</a>
-                            </div>
-                        </li>
-                    ))
-                }
-            </ol>
-        </div>
+        <>
+            <Header />
+            <MenuBar />
+            <Dashboard />
+            <Footer />
+        </>
     );
 }
 export default Home;

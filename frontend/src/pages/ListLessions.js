@@ -7,7 +7,7 @@ import {
     Route,
     Link,
 } from "react-router-dom";
-function Dashboard() {
+function ListLessions() {
     const [listItems, setListItems] = React.useState([]);
 
     const notifyData = () => {
@@ -21,7 +21,7 @@ function Dashboard() {
     }, []);
     
     return (
-        <div className = 'content'>
+        <div>
             <h1>Các thuật toán :</h1>
             <ol>
                 {
@@ -37,4 +37,4 @@ function Dashboard() {
         </div>
     );
 }
-export default Dashboard;
+export default ListLessions;

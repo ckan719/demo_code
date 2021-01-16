@@ -1,15 +1,15 @@
 import React from 'react';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 function MenuBar() {
     return (
         <div id="navbar">
             <span id="title">
-                <a href='/'>Dashboard</a>
+                <Link to='/'>Dashboard</Link>
             </span>
             <span id="menu">
-                <a href='/upload'>Admin</a>
+                <Link to='/upload'>Admin</Link>
             </span>
         </div>
     );
 }
-
 export default MenuBar;
