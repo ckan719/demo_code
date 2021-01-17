@@ -71,7 +71,7 @@ function Lessions() {
                     <li>
                         <div>
                             <h4> Minh họa cách chạy :</h4>
-                            <img src={items.src} alt='' />
+                            <img src={items.src} alt='' style = {{'height':'400px'}} />
                             <div className='item'><p id='minhhoa'></p></div>
                         </div>
                     </li>
