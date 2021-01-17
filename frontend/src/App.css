@@ -54,3 +54,16 @@ h1, h2, h3{
   margin-top: 5px;
   margin-bottom: 5px;
 }
+#btn-search{
+  margin-right: 15px;
+}
+.par-exten{
+  position: relative;
+}
+.extension{
+  position: fixed;
+}
+.extension button{
+  width: 80px;
+  margin: 3px;
+}

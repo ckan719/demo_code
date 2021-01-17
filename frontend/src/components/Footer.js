@@ -1,9 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 function Footer() {
     return (
         <div id="footer">
-            (c) 2014-2020 translation by <Link to="#">link</Link>
+            (c) 2021 copy from <a target = '_blank' href="https://cp-algorithms.com/">CP-Algorithms</a>
         </div>
     );
 }

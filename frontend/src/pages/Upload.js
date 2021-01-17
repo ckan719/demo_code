@@ -4,15 +4,22 @@ import CRUD from '../services/crud.js';
 import Header from '../components/Header.js';
 import MenuBar from '../components/Menu.js';
 import Footer from '../components/Footer.js';
+import Extensions from '../components/Extensions';
 import { useHistory } from 'react-router-dom';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
+import useClipboard from 'react-hook-clipboard';
 export default function Upload() {
     const [fileInputState, setFileInputState] = useState('');
     const [selectedFile, setSelectedFile] = useState();
     const [successMsg, setSuccessMsg] = useState('');
     const [errMsg, setErrMsg] = useState('');
     let history = useHistory();
-    // src gif
+    const [contentClipboard, setContentClipboard] = useClipboard();
+
+    const onSetContentClipboard = (data) => {
+        setContentClipboard(data);
+    }
+
     const [postData, setPostData] = useState({
         'path': '',
         'tieude': '',
@@ -48,7 +55,7 @@ export default function Upload() {
             uploadImage(reader.result);
         };
         reader.onerror = () => {
-            setErrMsg('❌');
+            setErrMsg('Upload ảnh không thành công !');
         };
     };
 
@@ -61,11 +68,11 @@ export default function Upload() {
             }).then(response => response.json()).then(data => {
                 postData.src = data.msg.url;
             });
-            setFileInputState('');
-            setSuccessMsg('✅');
+            //setFileInputState('');
+            setSuccessMsg('Upload ảnh thành công !');
         } catch (err) {
             console.error(err);
-            setErrMsg('❌');
+            setErrMsg('Upload ảnh không thành công !');
         }
     };
 
@@ -90,48 +97,61 @@ export default function Upload() {
             <Header />
             <MenuBar />
             <div className='content'>
-                <h3 className="title">Upload</h3>
-                <Form>
-                    <FormGroup>
-                        <Label for="">Tag(*)</Label>
-                        <Input name='path' onChange={onChangPostData} type="textarea" />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="">Tiêu đề (*)</Label>
-                        <Input name='tieude' onChange={onChangPostData} type="textarea" />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="">Đặt vấn đề (*)</Label>
-                        <Input name='vande' onChange={onChangPostData} type="textarea" />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="">Ý tưởng (*)</Label>
-                        <Input name='ytuong' onChange={onChangPostData} type="textarea" />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="">Thực hiện (*)</Label>
-                        <Input name='thuchien' onChange={onChangPostData} type="textarea" />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="">Code</Label>
-                        <Input name='code' onChange={onChangPostData} type="textarea" />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="">Gif minh họa</Label>
-                        <Input name='image' onChange={handleFileInputChange} value={fileInputState} type="file" />
-                        <Button type='button' onClick={handleSubmitFile}> Upload</Button>
-                        <Alert msg={errMsg} type="danger" />
-                        <Alert msg={successMsg} type="success" />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for="">Minh họa</Label>
-                        <Input name='minhhoa' onChange={onChangPostData} type="textarea" />
-                    </FormGroup>
-                    <Button type='button' onClick={handleSubmit} >Gửi</Button>
-                </Form>
+                <Container>
+                    <Row>
+                        <Col>
+                            <h3 className="title">Upload</h3>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs="11">
+                            <Form>
+                                <FormGroup>
+                                    <Label for="path">Tag(*)</Label>
+                                    <Input id = 'path' name='path' onChange={onChangPostData} type="textarea" />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="tieude">Tiêu đề (*)</Label>
+                                    <Input id = 'tieude' name='tieude' onChange={onChangPostData} type="textarea" />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="vande">Đặt vấn đề (*)</Label>
+                                    <Input id = 'vande' name='vande' onChange={onChangPostData} type="textarea" />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="">Ý tưởng (*)</Label>
+                                    <Input name='ytuong' onChange={onChangPostData} type="textarea" />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="thuchien">Thực hiện (*)</Label>
+                                    <Input id = 'thuchien' name='thuchien' onChange={onChangPostData} type="textarea" />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="code">Code</Label>
+                                    <Input id = 'code' name='code' onChange={onChangPostData} type="textarea" />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="">Gif minh họa</Label>
+                                    <Input name='image' onChange={handleFileInputChange} value={fileInputState} type="file" />
+                                    <Button type='button' onClick={handleSubmitFile}> Upload</Button>
+                                    <Alert msg={errMsg} type="danger" />
+                                    <Alert msg={successMsg} type="success" />
+                                </FormGroup>
+                                <FormGroup>
+                                    <Label for="minhhoa">Minh họa</Label>
+                                    <Input id = 'minhhoa' name='minhhoa' onChange={onChangPostData} type="textarea" />
+                                </FormGroup>
+                                <Button type='button' onClick={handleSubmit} >Gửi</Button>
+                            </Form>
+                        </Col>
+                        <Col xs="1" className = 'par-exten'>
+                            <Extensions onSetContentClipboard = {onSetContentClipboard}  />
+                        </Col>
+                    </Row>
+                </Container>
             </div>
             <div>
-                <p>Viết công thức toán học ở <a href='https://www.codecogs.com/latex/eqneditor.php'>codecogs</a></p>
+                <p>Viết công thức toán học ở <a target="_blank" href='https://www.codecogs.com/latex/eqneditor.php'>codecogs</a></p>
             </div>
             <Footer />
         </>

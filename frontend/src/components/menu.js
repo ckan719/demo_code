@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+
 function MenuBar() {
     return (
         <div id="navbar">
@@ -7,7 +8,9 @@ function MenuBar() {
                 <Link to='/'>Dashboard</Link>
             </span>
             <span id="menu">
-                <Link to='/upload'>Admin</Link>
+                <input name = 'search' type = 'search' />
+                <button id = 'btn-search' >🔎</button>
+                <Link to='/upload'>Upload</Link>
             </span>
         </div>
     );
