@@ -141,7 +141,7 @@ export default function Upload() {
                                     <Label for="minhhoa">Minh họa</Label>
                                     <Input id = 'minhhoa' name='minhhoa' onChange={onChangPostData} type="textarea" />
                                 </FormGroup>
-                                <Button type='button' onClick={handleSubmit} >Gửi</Button>
+                                <Button color = 'primary' type='button' onClick={handleSubmit} >Thêm bài viết</Button>
                             </Form>
                         </Col>
                         <Col xs="1" className = 'par-exten'>
