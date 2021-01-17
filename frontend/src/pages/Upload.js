@@ -132,8 +132,8 @@ export default function Upload() {
                                 </FormGroup>
                                 <FormGroup>
                                     <Label for="">Gif minh họa</Label>
-                                    <Input name='image' onChange={handleFileInputChange} value={fileInputState} type="file" />
-                                    <Button type='button' onClick={handleSubmitFile}> Upload</Button>
+                                    <input className = 'ip-file' name='image' onChange={handleFileInputChange} value={fileInputState} type="file" />
+                                    <button type='button' onClick={handleSubmitFile}> Upload</button>
                                     <Alert msg={errMsg} type="danger" />
                                     <Alert msg={successMsg} type="success" />
                                 </FormGroup>
