@@ -131,7 +131,7 @@ export default function Upload() {
                                     <Input id = 'code' name='code' onChange={onChangPostData} type="textarea" />
                                 </FormGroup>
                                 <FormGroup>
-                                    <Label for="">Gif minh họa</Label>
+                                    <Label for="">Gif minh họa  </Label>
                                     <input className = 'ip-file' name='image' onChange={handleFileInputChange} value={fileInputState} type="file" />
                                     <button type='button' onClick={handleSubmitFile}> Upload</button>
                                     <Alert msg={errMsg} type="danger" />
